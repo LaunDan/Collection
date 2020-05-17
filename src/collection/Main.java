@@ -1,20 +1,33 @@
 package collection;
 
-public class Main<M extends N, N extends F, F>{
+import java.util.Iterator;
 
-    private M variable;
+public class Main<Type> implements Iterable <Type> {
 
-    public Main(M variable) {
-        this.variable = variable;
+    private Type[] arrayList;
+    private int currentSize;
+
+    public Main(Type[] newArray) {
+        this.arrayList=newArray;
+        this.currentSize=arrayList.length;
     }
 
-    public static void main(String[] args) {
-        Main<Integer, Integer, Integer> instance = new Main<>(10);
+    @Override
+    public Iterator<Type> iterator() {
+        Iterator <Type> it = new Iterator<Type>() {
 
-        System.out.println(instance.compare("10"));
-    }
+            private int currentIndex = 0;
 
-    public <M2> boolean compare(M2 a){
-        return variable.equals(a);
+            @Override
+            public boolean hasNext() {
+                return currentIndex < currentSize && arrayList[currentIndex] != null;
+            }
+
+            @Override
+            public Type next() {
+                return arrayList[currentIndex++];
+            }
+        };
+        return it;
     }
 }
