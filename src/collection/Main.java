@@ -1,33 +1,17 @@
 package collection;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
-public class Main<Type> implements Iterable <Type> {
+public class Main{
 
-    private Type[] arrayList;
-    private int currentSize;
-
-    public Main(Type[] newArray) {
-        this.arrayList=newArray;
-        this.currentSize=arrayList.length;
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(5);
+        list.addFirst(6);
+        list.addLast(10);
+        System.out.println(list.getFirst());
+        System.out.println(list.getLast());
     }
 
-    @Override
-    public Iterator<Type> iterator() {
-        Iterator <Type> it = new Iterator<Type>() {
-
-            private int currentIndex = 0;
-
-            @Override
-            public boolean hasNext() {
-                return currentIndex < currentSize && arrayList[currentIndex] != null;
-            }
-
-            @Override
-            public Type next() {
-                return arrayList[currentIndex++];
-            }
-        };
-        return it;
-    }
 }
