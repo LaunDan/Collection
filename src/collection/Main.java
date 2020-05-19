@@ -68,6 +68,12 @@ public class Main {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         Node node=first;
+        for (int i = 0; i < this.size; i++) {
+            builder.append(node.getValue());
+            builder.append(" ");
+            node = node.getNext();
+        }
+        return builder.toString();
     }
 }
 
