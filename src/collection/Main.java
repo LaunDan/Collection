@@ -23,11 +23,10 @@ public class Main {
         Node node = new Node(number);
         if (isEmpty()) {
             first = node;
-            last = node;
         } else {
             last.setNext(node);
-            last = node;
         }
+        last = node;
         size++;
     }
 }
