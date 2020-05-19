@@ -49,5 +49,25 @@ public class Main {
         }
         size--;
     }
+
+    public int get(int i) {
+        if (i >= size) {
+            throw new IndexOutOfBoundsException("Out of index:" + i + ", size:" + this.size);
+        }
+        if (i < 0) {
+            throw new IllegalArgumentException("Index lower than 0");
+        }
+        Node node=first;
+        for (int j = 0; j < i; j++) {
+            node = node.getNext();
+        }
+        return node.getValue();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        Node node=first;
+    }
 }
 
