@@ -1,15 +1,22 @@
 package collection;
 
-import java.util.Iterator;
-import java.util.LinkedList;
 
 public class Main {
 
-    public static void main(String[] args) {
+    private Node first;
+    private Node last;
+    private int size;
 
-        LinkedList list = new LinkedList();
-
+    public Main() {
+        size = 0;
     }
 
+    public int size(){
+        return size;
+    }
+
+    public boolean isEmpty(){
+        return (size == 0);
+    }
 }
 
