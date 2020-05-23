@@ -52,6 +52,9 @@ public class Main {
         theStack.push("4");
         theStack.peek();
         theStack.pop();
+        theStack.pushMany("12 13 14 15");
+        theStack.popAll();
+        theStack.displayTheStack();
     }
 
     public void displayTheStack() {
@@ -71,6 +74,19 @@ public class Main {
         System.out.println("|");
         for (int n = 0; n < 61; n++) System.out.print("-");
         System.out.println();
+    }
+
+    public void pushMany(String multipleValues) {
+        String[] tempString = multipleValues.split(" ");
+        for (int i = 0; i < tempString.length; i++) {
+            push(tempString[i]);
+        }
+    }
+
+    public void popAll() {
+        for (int i = topOfStack; i >= 0; i--) {
+            pop();
+        }
     }
 
 }
