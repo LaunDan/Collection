@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class Main {
 
-    private String[] stackArray;
-    private int stackSize;
+    private final String[] stackArray;
+    private final int stackSize;
     private int topOfStack = -1;
 
     public Main(int size) {
@@ -26,23 +26,21 @@ public class Main {
 
     }
 
-    public String pop() {
+    public void pop() {
         if (topOfStack >= 0) {
             displayTheStack();
             System.out.println("POP " + stackArray[topOfStack] + " was removed from stack\n");
             stackArray[topOfStack] = "-1";
-            return stackArray[topOfStack--];
+            topOfStack--;
         } else {
             displayTheStack();
             System.out.println("Sorry but the stack is empty");
-            return "-1";
         }
     }
 
-    public String peek() {
+    public void peek() {
         displayTheStack();
         System.out.println("PEEK " + stackArray[topOfStack] + " is at the top of the stack\n");
-        return stackArray[topOfStack];
 
     }
 
@@ -78,8 +76,8 @@ public class Main {
 
     public void pushMany(String multipleValues) {
         String[] tempString = multipleValues.split(" ");
-        for (int i = 0; i < tempString.length; i++) {
-            push(tempString[i]);
+        for (String s : tempString) {
+            push(s);
         }
     }
 
