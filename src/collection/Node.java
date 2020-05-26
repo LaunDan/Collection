@@ -1,14 +1,13 @@
 package collection;
 
 
-import org.w3c.dom.Node;
 
-public class Main {
+public class Node{
 
     int key;
     Node left, right;
 
-    public Main(int item) {
+    public Node(int item) {
         key = item;
         left = right = null;
     }
